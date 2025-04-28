@@ -1,0 +1,36 @@
+services:
+  # Django app container
+  web:
+    build: .
+    command: python manage.py runserver 0.0.0.0:8000
+    volumes:
+      - .:/app
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+    environment:
+      - DEBUG=True
+      - DATABASE_URL=mongodb://bakery_user:99h8#9ZLUxh@db:27017/sourdough_bakery
+      - DJANGO_SECRET_KEY=your_secret_key_here
+      - DJANGO_ALLOWED_HOSTS=localhost,127.0.0.1
+      - MONGO_USERNAME=bakery_user
+      - MONGO_PASSWORD=99h8#9ZLUxh
+      - MONGO_DB_NAME=sourdough_bakery
+
+  # MongoDB container with authentication
+  db:
+    image: mongo:latest
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=bakery_user
+      - MONGO_INITDB_ROOT_PASSWORD=99h8#9ZLUxh
+      - MONGO_INITDB_DATABASE=sourdough_bakery
+    volumes:
+      - mongodb_data:/data/db
+    ports:
+      - "27017:27017"
+
+volumes:
+  mongodb_data:
+    driver: local
+
