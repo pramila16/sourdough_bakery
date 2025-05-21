@@ -13,7 +13,7 @@ severity: unknown
 #prompt_file: /Users/pramilasingh/workspace/workspace_pradip_new/autoremediate/src/autoremediate/autoremediateflow/AutoFix/default_prompt.json
 
 # CallLLM Inputs
-openai_api_key: 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
+openai_api_key: ""
 # google_api_key: required-for-gemini
 # model: gpt-4o
 # client_base_url: https://api.openai.com/v1
@@ -32,7 +32,7 @@ disable_pr: false
 force_pr_creation: true
 # github_api_key: required-for-github-scm
 # gitlab_api_key: required-for-gitlab-scm
-bitbucket_key: ATBBmFKC2BSCvnruhKKazgwZJwFbF3FDB93C
+bitbucket_key: ""
 bitbucket_user: autoremediatex-admin
 
 
